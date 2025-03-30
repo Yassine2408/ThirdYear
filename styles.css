@@ -10,6 +10,7 @@ body {
     background-color: #fff5f5;
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
 }
 
 .container {
@@ -593,6 +594,7 @@ footer {
 
 html {
     scroll-behavior: smooth;
+    font-size: 16px; /* Base font size for rem units */
 }
 
 body {
@@ -1048,4 +1050,214 @@ footer {
     .dream {
         margin-bottom: 30px;
     }
+}
+
+/* Responsive Design Enhancements */
+
+/* Base responsive settings */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; /* Base font size for rem units */
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Responsive navigation */
+.main-nav {
+  padding: 0;
+}
+
+.main-nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  padding: 15px 0;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 15px 0;
+}
+
+/* Header responsiveness */
+.header-content {
+  padding: 120px 20px;
+}
+
+.glowing-text {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+}
+
+.subtitle {
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+}
+
+/* Profiles section responsiveness */
+.profiles {
+  gap: clamp(20px, 5vw, 80px);
+}
+
+.profile-img {
+  width: clamp(150px, 30vw, 200px);
+  height: clamp(150px, 30vw, 200px);
+}
+
+/* Timeline responsiveness */
+.timeline-content {
+  padding: 15px;
+}
+
+.timeline-date {
+  font-size: clamp(0.8rem, 3vw, 1rem);
+}
+
+/* Love note responsiveness */
+.note {
+  padding: 20px;
+  max-width: 100%;
+}
+
+/* Dreams section responsiveness */
+.dreams-container {
+  gap: 30px;
+}
+
+.dream {
+  padding: clamp(20px, 5vw, 40px);
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .main-nav ul {
+    gap: 10px;
+  }
+  
+  .main-nav ul li a {
+    padding: 15px 10px;
+  }
+  
+  .timeline-item {
+    padding-left: 30px;
+  }
+  
+  .timeline-dot {
+    width: 20px;
+    height: 20px;
+    left: -10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  
+  .main-nav ul {
+    flex-direction: column;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+  
+  .main-nav ul.show {
+    max-height: 500px;
+  }
+  
+  .main-nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .main-nav ul li a {
+    padding: 10px;
+    width: 100%;
+    display: block;
+  }
+  
+  .profiles {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .dreams-container {
+    flex-direction: column;
+  }
+  
+  .dream {
+    width: 100%;
+  }
+  
+  .parallax-section {
+    height: 300px;
+  }
+  
+  .parallax-content h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    padding: 100px 15px;
+  }
+  
+  .timeline-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .timeline-content p {
+    font-size: 0.9rem;
+  }
+  
+  .note h3 {
+    font-size: 1.5rem;
+  }
+  
+  .note p {
+    font-size: 0.9rem;
+  }
+  
+  .dream h3 {
+    font-size: 1.5rem;
+  }
+  
+  .animated-list li {
+    font-size: 0.9rem;
+  }
+  
+  .quote {
+    font-size: 1.5rem;
+  }
 } 

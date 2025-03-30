@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Happy 3rd Anniversary, Raouia! | From Yassine with Love</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,6 +12,17 @@
     <meta property="og:title" content="Happy 3rd Anniversary, Raouia!">
     <meta property="og:description" content="A celebration of our beautiful journey together">
     <meta property="og:image" content="og-image.jpg">
+    <style>
+      :root {
+        --vh: 1vh;
+      }
+      
+      /* Use this for full-height elements on mobile */
+      header {
+        height: 100vh; /* Fallback */
+        height: calc(var(--vh, 1vh) * 100);
+      }
+    </style>
 </head>
 <body>
     <div class="falling-hearts"></div>

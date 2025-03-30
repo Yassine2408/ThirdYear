@@ -300,4 +300,63 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Mobile navigation toggle
+    const nav = document.querySelector('.main-nav .container');
+    const navList = document.querySelector('.main-nav ul');
+    
+    const navToggle = document.createElement('button');
+    navToggle.className = 'nav-toggle';
+    navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    nav.insertBefore(navToggle, navList);
+    
+    navToggle.addEventListener('click', function() {
+        navList.classList.toggle('show');
+        this.innerHTML = navList.classList.contains('show') 
+            ? '<i class="fas fa-times"></i>' 
+            : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.main-nav') && navList.classList.contains('show')) {
+            navList.classList.remove('show');
+            navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+    });
+    
+    // Adjust animations for mobile
+    if (window.innerWidth < 768) {
+        // Reduce number of falling hearts on mobile
+        const heartInterval = window.setInterval(createHeart, 300);
+        clearInterval(heartInterval);
+        setInterval(createHeart, 800);
+        
+        // Simplify particle effect on mobile
+        if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": { "value": 20 }, // Fewer particles
+                    "size": { "value": 5 }     // Smaller size
+                }
+            });
+        }
+    }
+    
+    // Handle orientation changes
+    window.addEventListener('orientationchange', function() {
+        // Force AOS refresh on orientation change
+        setTimeout(function() {
+            AOS.refresh();
+        }, 500);
+    });
+    
+    // Add viewport height fix for mobile browsers
+    function setVH() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    setVH();
+    window.addEventListener('resize', setVH);
 }); 
